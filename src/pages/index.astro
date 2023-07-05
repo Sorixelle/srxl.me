@@ -12,9 +12,61 @@ import "../styles/main.css";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
+    <style>
+      html,
+      body,
+      h1 {
+        margin: 0;
+      }
+
+      .left-block {
+        position: relative;
+      }
+
+      .left-block::before {
+        content: "";
+        position: absolute;
+        left: -100px;
+        top: 0;
+        width: 35vw;
+        height: 100vh;
+        background-color: #000;
+        transform: skewX(9deg);
+      }
+
+      .block-content {
+        position: relative;
+        padding: 16px;
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
-    <h1>hi.<br />i'm ruby.</h1>
-    <h4>welcome to my website.</h4>
+    <main>
+      <div class="left-block">
+        <div class="block-content">
+          <h1>hi.<br />i'm ruby.</h1>
+          <h4>welcome to my website.</h4>
+
+          <ul>
+            <li>
+              <h3><a href="#">home</a> <small>(you are here)</small></h3>
+            </li>
+            <li>
+              <h3><a href="#">about me</a></h3>
+            </li>
+            <li>
+              <h3><a href="#">blog</a></h3>
+            </li>
+            <li>
+              <h3><a href="#">projects</a></h3>
+            </li>
+            <li>
+              <h3><a href="#">gallery</a></h3>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

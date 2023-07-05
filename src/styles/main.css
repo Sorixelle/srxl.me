@@ -56,6 +56,10 @@ p {
   letter-spacing: -0.015rem;
 }
 
+a {
+  color: white;
+}
+
 small {
   font-size: 0.875rem;
   font-weight: 400;
