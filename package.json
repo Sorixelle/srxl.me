@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.0.4",
+    "@fontsource/inter": "^5.0.4",
     "astro": "^2.7.2"
   },
   "devDependencies": {
