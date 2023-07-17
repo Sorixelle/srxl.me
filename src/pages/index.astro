@@ -12,13 +12,29 @@ import "../styles/main.css";
     <title>Astro</title>
     <style>
       html,
-      body,
-      h1 {
+      body {
         margin: 0;
       }
 
-      .left-block {
-        position: relative;
+      .container {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        grid-template-rows: 2fr 1fr;
+      }
+
+      .side-nav {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        background-color: black;
+      }
+
+      .avatar {
+        background-color: cyan;
+      }
+
+      .webrings {
+        background-color: white;
       }
 
       .left-block::before {
@@ -40,31 +56,10 @@ import "../styles/main.css";
     </style>
   </head>
   <body>
-    <main>
-      <div class="left-block">
-        <div class="block-content">
-          <h1>hi.<br />i'm ruby.</h1>
-          <h4>welcome to my website.</h4>
-
-          <ul>
-            <li>
-              <h3><a href="#">home</a> <small>(you are here)</small></h3>
-            </li>
-            <li>
-              <h3><a href="#">about me</a></h3>
-            </li>
-            <li>
-              <h3><a href="#">blog</a></h3>
-            </li>
-            <li>
-              <h3><a href="#">projects</a></h3>
-            </li>
-            <li>
-              <h3><a href="#">gallery</a></h3>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <main class="container">
+      <div class="side-nav"></div>
+      <div class="avatar"></div>
+      <div class="webrings"></div>
     </main>
   </body>
 </html>
