@@ -5,6 +5,7 @@ h4,
 h5,
 p {
   font-family: "Inter", sans-serif;
+  font-variant-alternates: styleset(open-digits, disambiguation);
 }
 
 @supports (font-variation-settings: normal) {
@@ -14,7 +15,8 @@ p {
   h4,
   h5,
   p {
-    font-family: "Inter Variable", sans-serif;
+    font-family: "Inter var", sans-serif;
+    font-variant-alternates: styleset(open-digits, disambiguation);
   }
 }
 
