@@ -9,32 +9,43 @@ import "../styles/main.css";
     <link rel="stylesheet" href="/fonts/inter/inter.css" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>welcome | srxl.me</title>
     <style>
       html,
       body {
         margin: 0;
       }
 
+      h1 {
+        margin-top: 0;
+      }
+
       .container {
         height: 100vh;
         display: grid;
-        grid-template-columns: 2fr 5fr;
-        grid-template-rows: 2fr 1fr;
+        grid-template-columns: 700px 1fr;
+        grid-template-rows: 1fr 300px;
       }
 
       .side-nav {
         grid-row-start: 1;
         grid-row-end: 3;
         background-color: black;
+        color: white;
+        padding: 32px;
       }
 
       .avatar {
-        background-color: cyan;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        overflow: hidden;
+        margin-top: -200px;
       }
 
       .webrings {
         background-color: white;
+        padding: 32px;
+        text-align: right;
       }
 
       .left-block::before {
@@ -57,9 +68,33 @@ import "../styles/main.css";
   </head>
   <body>
     <main class="container">
-      <div class="side-nav"></div>
-      <div class="avatar"></div>
-      <div class="webrings"></div>
+      <div class="side-nav">
+        <h1>hi.<br />i'm ruby.</h1>
+        <h4>welcome to my website.</h4>
+
+        <ul>
+          <li>
+            <h3><a href="#">home</a> <small>(you are here)</small></h3>
+          </li>
+          <li>
+            <h3><a href="#">about me</a></h3>
+          </li>
+          <li>
+            <h3><a href="#">blog</a></h3>
+          </li>
+          <li>
+            <h3><a href="#">projects</a></h3>
+          </li>
+          <li>
+            <h3><a href="#">gallery</a></h3>
+          </li>
+        </ul>
+      </div>
+      <img class="avatar" src="/img/avatar.png" />
+      <div class="webrings">
+        <h1>webrings</h1>
+        <p>coming soon.</p>
+      </div>
     </main>
   </body>
 </html>
