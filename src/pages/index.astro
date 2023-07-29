@@ -54,43 +54,38 @@ import "../styles/main.css";
     >
       <div class="left-block bg-black row-span-2">
         <div class="relative h-full flex flex-col z-10 p-8 text-white">
-          <h1 class="text-h1">hi.<br />i'm ruby.</h1>
-          <h4 class="pt-2 text-h4 italic">welcome to my website.</h4>
+          <hgroup>
+            <h1 class="text-h1">hi.<br />i'm ruby.</h1>
+            <p class="pt-2 text-h4 italic">welcome to my website.</p>
+          </hgroup>
 
-          <ul class="mt-8 grow flex flex-col gap-4">
-            <li>
-              <h3 class="text-h3">
-                <a class="underline" href="#">home</a>
+          <nav class="mt-8 grow">
+            <ul class="flex flex-col gap-4">
+              <li>
+                <a class="text-h3 text-grey-60 underline" href="#">home</a>
                 <small class="text-caption">(you are here)</small>
-              </h3>
-            </li>
-            <li>
-              <h3 class="text-h3 text-grey-60">
-                <a class="underline" href="#">about me</a>
+              </li>
+              <li>
+                <a class="text-h3 text-grey-60 underline" href="#">about me</a>
                 <small class="text-caption text-white">coming soon</small>
-              </h3>
-            </li>
-            <li>
-              <h3 class="text-h3 text-grey-60">
-                <a class="underline" href="#">blog</a>
+              </li>
+              <li>
+                <a class="text-h3 text-grey-60 underline" href="#">blog</a>
                 <small class="text-caption text-white">coming soon</small>
-              </h3>
-            </li>
-            <li>
-              <h3 class="text-h3 text-grey-60">
-                <a class="underline" href="#">projects</a>
+              </li>
+              <li>
+                <a class="text-h3 text-grey-60 underline" href="#">projects</a>
                 <small class="text-caption text-white">coming soon</small>
-              </h3>
-            </li>
-            <li>
-              <h3 class="text-h3 text-grey-60">
-                <a class="underline" href="#">gallery</a>
+              </li>
+              <li>
+                <a class="text-h3 text-grey-60 underline" href="#">gallery</a>
                 <small class="text-caption text-white">coming soon</small>
-              </h3>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </nav>
+
           <div class="icons flex items-end justify-end gap-4">
-            <h5 class="text-h5">find me at:</h5>
+            <span class="text-h5">find me at:</span>
             <a href="https://cohost.org/srxl" rel="me" aria-label="cohost">
               <Icon name="eggbug" title="cohost" size={48} />
             </a>
@@ -125,7 +120,7 @@ import "../styles/main.css";
       <div class="bottom-block">
         <div class="relative z-10 flex justify-end">
           <div class="text-right pr-8 mt-[-16px]">
-            <h1 class="text-h1">webrings</h1>
+            <h2 class="text-h1">webrings</h2>
             <p class="text-body">coming soon.</p>
           </div>
         </div>
