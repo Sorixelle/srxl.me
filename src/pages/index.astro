@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import "../styles/main.css";
 ---
 
@@ -41,6 +42,10 @@ import "../styles/main.css";
         background-color: #fff;
         transform: skewY(-5deg);
       }
+
+      .icons {
+        width: calc(100% + 14vh);
+      }
     </style>
   </head>
   <body>
@@ -48,11 +53,11 @@ import "../styles/main.css";
       class="grid grid-cols-[25vw_1fr] grid-rows-[1fr_25vh] w-screen h-screen"
     >
       <div class="left-block bg-black row-span-2">
-        <div class="relative z-10 p-8 text-white">
+        <div class="relative h-full flex flex-col z-10 p-8 text-white">
           <h1 class="text-h1">hi.<br />i'm ruby.</h1>
           <h4 class="pt-2 text-h4 italic">welcome to my website.</h4>
 
-          <ul class="mt-8 flex flex-col gap-4">
+          <ul class="mt-8 grow flex flex-col gap-4">
             <li>
               <h3 class="text-h3">
                 <a class="underline" href="#">home</a>
@@ -76,6 +81,24 @@ import "../styles/main.css";
               <h3 class="text-h3"><a class="underline" href="#">gallery</a></h3>
             </li>
           </ul>
+          <div class="icons flex items-end justify-end gap-4">
+            <h5 class="text-h5">find me at:</h5>
+            <a href="https://cohost.org/srxl" rel="me">
+              <Icon name="eggbug" size={48} />
+            </a>
+            <a href="https://github.com/Sorixelle" rel="me">
+              <Icon name="simple-icons:github" size={48} />
+            </a>
+            <a href="https://matrix.to/#/@ruby:isincredibly.gay" rel="me">
+              <Icon name="simple-icons:matrix" size={48} />
+            </a>
+            <a href="https://keyoxide.org/ruby@srxl.me" rel="me">
+              <Icon name="ion:key-sharp" size={48} />
+            </a>
+            <a href="mailto:ruby@srxl.me" rel="me">
+              <Icon name="ion:mail-sharp" size={48} />
+            </a>
+          </div>
         </div>
       </div>
       <img
