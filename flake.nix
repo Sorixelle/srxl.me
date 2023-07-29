@@ -4,12 +4,26 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+
+    pnpm2nix = {
+      url = "github:nzbr/pnpm2nix-nzbr";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
-  outputs = { self, flake-utils, nixpkgs }:
+  outputs = { self, flake-utils, nixpkgs, pnpm2nix }:
     flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ pnpm2nix.overlays.default ];
+        };
       in {
+        packages = { site = pkgs.callPackage ./nix/site.nix { }; };
+
         devShell = pkgs.mkShell {
           name = "srxl.me-devshell";
 

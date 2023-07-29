@@ -14,6 +14,12 @@ dependencies:
   '@fontsource/inter':
     specifier: ^5.0.4
     version: 5.0.4
+  '@iconify-json/ion':
+    specifier: ^1.1.11
+    version: 1.1.11
+  '@iconify-json/simple-icons':
+    specifier: ^1.1.62
+    version: 1.1.62
   astro:
     specifier: ^2.7.2
     version: 2.7.2
@@ -25,12 +31,6 @@ dependencies:
     version: 3.3.3
 
 devDependencies:
-  '@iconify-json/ion':
-    specifier: ^1.1.11
-    version: 1.1.11
-  '@iconify-json/simple-icons':
-    specifier: ^1.1.62
-    version: 1.1.62
   prettier:
     specifier: ^2.8.8
     version: 2.8.8
@@ -617,13 +617,13 @@ packages:
     resolution: {integrity: sha512-2HSbDxBLhyi4mgZ6uuvzafJdcqIf3dJWYgrNrlejGBHNpvF3OuqLQP6fQ+Stlk+rjoJv3wEeQXs8TvuMLckxZQ==}
     dependencies:
       '@iconify/types': 2.0.0
-    dev: true
+    dev: false
 
   /@iconify-json/simple-icons@1.1.62:
     resolution: {integrity: sha512-idHWbDrd9HKtZq9XBJyVN5+QCxJ+oO4BJeJtNNi9GfFSgoA2ig0LZt7adj9uZ/zzEX0i5OY37OpuotkeFRCWfg==}
     dependencies:
       '@iconify/types': 2.0.0
-    dev: true
+    dev: false
 
   /@iconify/tools@3.0.2:
     resolution: {integrity: sha512-qEJ7IrqZuQHdS0lIZwk9dLeD0z9k7+EIN0qpo5YbUk1dA2gyluM9Xn/tmED7ZaVekkEQe3K3EcLGqNJQTyewzw==}
@@ -644,6 +644,7 @@ packages:
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: false
 
   /@iconify/utils@2.1.7:
     resolution: {integrity: sha512-P8S3z/L1LcV4Qem9AoCfVAaTFGySEMzFEY4CHZLkfRj0Fv9LiR+AwjDgrDrzyI93U2L2mg9JHsbTJ52mF8suNw==}
