@@ -20,80 +20,74 @@ import "../styles/main.css";
         margin-top: 0;
       }
 
-      .container {
-        height: 100vh;
-        display: grid;
-        grid-template-columns: 700px 1fr;
-        grid-template-rows: 1fr 300px;
-      }
-
-      .side-nav {
-        grid-row-start: 1;
-        grid-row-end: 3;
-        background-color: black;
-        color: white;
-        padding: 32px;
-      }
-
-      .avatar {
-        aspect-ratio: 1 / 1;
-        width: 100%;
-        overflow: hidden;
-        margin-top: -200px;
-      }
-
-      .webrings {
-        background-color: white;
-        padding: 32px;
-        text-align: right;
-      }
-
-      .left-block::before {
+      .left-block:before {
         content: "";
+        z-index: 2;
         position: absolute;
-        left: -100px;
-        top: 0;
-        width: 35vw;
-        height: 100vh;
+        top: -100vh;
+        width: 20vw;
+        height: 200vh;
         background-color: #000;
         transform: skewX(9deg);
       }
 
-      .block-content {
-        position: relative;
-        padding: 16px;
-        color: #fff;
+      .bottom-block:before {
+        content: "";
+        z-index: 1;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #fff;
+        transform: skewY(-5deg);
       }
     </style>
   </head>
   <body>
-    <main class="container">
-      <div class="side-nav">
-        <h1>hi.<br />i'm ruby.</h1>
-        <h4>welcome to my website.</h4>
+    <main
+      class="grid grid-cols-[20vw_1fr] grid-rows-[1fr_25vh] w-screen h-screen overflow-hidden"
+    >
+      <div class="left-block bg-black row-span-2">
+        <div class="relative z-10 p-8 text-white">
+          <h1 class="text-h1">hi.<br />i'm ruby.</h1>
+          <h4 class="text-h4 italic">welcome to my website.</h4>
 
-        <ul>
-          <li>
-            <h3><a href="#">home</a> <small>(you are here)</small></h3>
-          </li>
-          <li>
-            <h3><a href="#">about me</a></h3>
-          </li>
-          <li>
-            <h3><a href="#">blog</a></h3>
-          </li>
-          <li>
-            <h3><a href="#">projects</a></h3>
-          </li>
-          <li>
-            <h3><a href="#">gallery</a></h3>
-          </li>
-        </ul>
+          <ul class="mt-8">
+            <li>
+              <h3 class="text-h3">
+                <a class="underline" href="#">home</a>
+                <small class="text-caption">(you are here)</small>
+              </h3>
+            </li>
+            <li>
+              <h3 class="text-h3">
+                <a class="underline" href="#">about me</a>
+              </h3>
+            </li>
+            <li>
+              <h3 class="text-h3"><a class="underline" href="#">blog</a></h3>
+            </li>
+            <li>
+              <h3 class="text-h3">
+                <a class="underline" href="#">projects</a>
+              </h3>
+            </li>
+            <li>
+              <h3 class="text-h3"><a class="underline" href="#">gallery</a></h3>
+            </li>
+          </ul>
+        </div>
       </div>
-      <img class="avatar" src="/img/avatar.png" />
-      <div class="webrings">
-        <h1>webrings</h1>
-        <p>coming soon.</p>
+      <img
+        class="w-full aspect-square mt-[-200px] overflow-hidden"
+        src="/img/avatar.png"
+      />
+      <div class="bottom-block">
+        <div class="relative z-10 flex justify-end">
+          <div class="text-right pr-8 mt-[-16px]">
+            <h1 class="text-h1">webrings</h1>
+            <p class="text-body">coming soon.</p>
+          </div>
+        </div>
       </div>
     </main>
   </body>
