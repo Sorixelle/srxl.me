@@ -7,13 +7,14 @@ import "../styles/main.css";
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/fonts/inter/inter.css" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>welcome | srxl.me</title>
     <style>
       html,
       body {
         margin: 0;
+        overflow: hidden;
       }
 
       h1 {
@@ -25,7 +26,7 @@ import "../styles/main.css";
         z-index: 2;
         position: absolute;
         top: -100vh;
-        width: 20vw;
+        width: 25vw;
         height: 200vh;
         background-color: #000;
         transform: skewX(9deg);
@@ -44,14 +45,14 @@ import "../styles/main.css";
   </head>
   <body>
     <main
-      class="grid grid-cols-[20vw_1fr] grid-rows-[1fr_25vh] w-screen h-screen overflow-hidden"
+      class="grid grid-cols-[25vw_1fr] grid-rows-[1fr_25vh] w-screen h-screen"
     >
       <div class="left-block bg-black row-span-2">
         <div class="relative z-10 p-8 text-white">
           <h1 class="text-h1">hi.<br />i'm ruby.</h1>
-          <h4 class="text-h4 italic">welcome to my website.</h4>
+          <h4 class="pt-2 text-h4 italic">welcome to my website.</h4>
 
-          <ul class="mt-8">
+          <ul class="mt-8 flex flex-col gap-4">
             <li>
               <h3 class="text-h3">
                 <a class="underline" href="#">home</a>
