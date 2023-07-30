@@ -51,6 +51,9 @@ import "../styles/main.css";
         transform: skewY(-5deg);
       }
 
+      .tagline {
+        width: calc(100% + 48px);
+      }
       .icons {
         width: calc(100% + 14vh);
       }
@@ -64,10 +67,10 @@ import "../styles/main.css";
         <div class="relative h-full flex flex-col z-10 p-8 text-white">
           <hgroup>
             <h1 class="text-h1">hi.<br />i'm ruby.</h1>
-            <p class="pt-2 text-h4 italic">welcome to my website.</p>
+            <p class="tagline pt-2 text-h4 italic">welcome to my website.</p>
           </hgroup>
 
-          <nav class="mt-8 grow">
+          <nav class="my-8 grow">
             <ul class="flex flex-col gap-4">
               <li>
                 <a class="text-h3 underline" href="#">home</a>
@@ -93,29 +96,29 @@ import "../styles/main.css";
           </nav>
 
           <div class="icons flex items-end justify-end gap-4">
-            <span class="text-h5">find me at:</span>
+            <p class="italic">find me at:</p>
             <a href="https://cohost.org/srxl" rel="me" aria-label="cohost">
-              <Icon name="eggbug" title="cohost" size={48} />
+              <Icon name="eggbug" title="cohost" size={32} />
             </a>
             <a href="https://github.com/Sorixelle" rel="me" aria-label="github">
-              <Icon name="simple-icons:github" title="github" size={48} />
+              <Icon name="simple-icons:github" title="github" size={32} />
             </a>
             <a
               href="https://matrix.to/#/@ruby:isincredibly.gay"
               rel="me"
               aria-label="matrix"
             >
-              <Icon name="simple-icons:matrix" title="matrix" size={48} />
+              <Icon name="simple-icons:matrix" title="matrix" size={32} />
             </a>
             <a
               href="https://keyoxide.org/ruby@srxl.me"
               rel="me"
               aria-label="keyoxide"
             >
-              <Icon name="ion:key-sharp" title="keyoxide" size={48} />
+              <Icon name="ion:key-sharp" title="keyoxide" size={32} />
             </a>
             <a href="mailto:ruby@srxl.me" rel="me" aria-label="email">
-              <Icon name="ion:mail-sharp" title="email" size={48} />
+              <Icon name="ion:mail-sharp" title="email" size={32} />
             </a>
           </div>
         </div>
