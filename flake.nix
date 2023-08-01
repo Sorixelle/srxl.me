@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = { self, flake-utils, nixpkgs, pnpm2nix }:
+  outputs = { self, flake-utils, nixpkgs, pnpm2nix }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -37,5 +37,7 @@
             ];
           in with pkgs; [ git nil nixfmt nodejs ] ++ nodePackages;
         };
-      });
+      }) // {
+        nixosModules.default = import ./nix/module.nix inputs;
+      };
 }

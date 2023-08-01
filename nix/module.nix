@@ -1,0 +1,28 @@
+inputs:
+{ config, lib, pkgs, ... }:
+
+let conf = config.services.srxl-me;
+in {
+  options = {
+    services.srxl-me = {
+      enable = lib.mkEnableOption "the webserver for the srxl.me site.";
+
+      package = lib.mkOption {
+        type = lib.types.package;
+        default = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.site;
+        description = "The package providing the webserver.";
+      };
+    };
+  };
+
+  config = lib.mkIf conf.enable {
+    systemd.services.srxl-me = {
+      description = "srxl.me webserver";
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = {
+        ExecStart = "${pkgs.nodejs}/bin/node ${conf.package}/server/entry.mjs";
+      };
+    };
+  };
+}
