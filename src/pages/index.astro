@@ -149,27 +149,28 @@ const garfringNext =
           <h2 class="text-h1 text-right">webrings</h2>
           <div class="flex grow items-end justify-end">
             <div class="flex items-center">
-              <a class="mr-4 self-start" href={garfringPrev}>
+              <a class="mr-4 self-start text-black" href={garfringPrev}>
                 <Icon name="mdi:arrow-left" title="previous" size={64} />
               </a>
               <div class="h-32 flex flex-col justify-around items-center">
                 <a
-                  class="flex items-center text-h5 italic underline"
+                  class="flex items-center text-h5 text-black italic underline"
                   href={garfringPrev}
                 >
                   {new URL(garfringPrev).host}
                 </a>
-                <a class="underline" href="https://garfring.neocities.org/"
-                  >index</a
+                <a
+                  class="underline text-black"
+                  href="https://garfring.neocities.org/">index</a
                 >
                 <a
-                  class="flex items-center text-h5 italic underline"
+                  class="flex items-center text-h5 text-black italic underline"
                   href={garfringNext}
                 >
                   {new URL(garfringNext).host}
                 </a>
               </div>
-              <a class="ml-4 self-end" href={garfringNext}>
+              <a class="ml-4 self-end text-black" href={garfringNext}>
                 <Icon name="mdi:arrow-right" title="next" size={64} />
               </a>
             </div>
