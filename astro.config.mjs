@@ -11,6 +11,7 @@ export default defineConfig({
     icon({
       include: {
         ion: ["key-sharp", "mail-sharp"],
+        mdi: ["arrow-left", "arrow-right"],
         "simple-icons": ["github", "matrix"],
       },
     }),

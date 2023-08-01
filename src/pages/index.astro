@@ -1,6 +1,21 @@
 ---
 import { Icon } from "astro-icon/components";
 import "../styles/main.css";
+
+type GarfringRes = {
+  websites: string[];
+};
+
+const { websites }: GarfringRes = await (
+  await fetch("https://garfring.neocities.org/websites.json")
+).json();
+
+const garfringIndex = websites.indexOf("https://srxl.me/");
+const prevIndex =
+  garfringIndex - 1 === -1 ? websites.length - 1 : garfringIndex - 1;
+const garfringPrev = websites[prevIndex] ?? "[none]";
+const garfringNext =
+  websites[(garfringIndex + 1) % websites.length] ?? "[none]";
 ---
 
 <html lang="en">
@@ -45,6 +60,7 @@ import "../styles/main.css";
         content: "";
         z-index: 1;
         position: absolute;
+        top: calc((100vh - 300px) + 1vw);
         height: 100%;
         width: 100%;
         background-color: #fff;
@@ -61,7 +77,7 @@ import "../styles/main.css";
   </head>
   <body>
     <main
-      class="grid grid-cols-[25vw_1fr] grid-rows-[1fr_25vh] w-screen h-screen"
+      class="grid grid-cols-[25vw_1fr] grid-rows-[1fr_300px] w-screen h-screen"
     >
       <div class="left-block bg-black row-span-2">
         <div class="relative h-full flex flex-col z-10 p-8 text-white">
@@ -129,10 +145,37 @@ import "../styles/main.css";
         src="/img/avatar.png"
       />
       <div class="bottom-block">
-        <div class="relative z-10 flex justify-end">
-          <div class="text-right pr-8 mt-[-16px]">
-            <h2 class="text-h1">webrings</h2>
-            <p class="text-body">coming soon.</p>
+        <div class="relative flex flex-col h-full z-10 pr-8 pb-8">
+          <h2 class="text-h1 text-right">webrings</h2>
+          <div class="flex grow items-end justify-end">
+            <div class="flex items-center">
+              <a class="mr-4 self-start" href={garfringPrev}>
+                <Icon name="mdi:arrow-left" title="previous" size={64} />
+              </a>
+              <div class="h-32 flex flex-col justify-around items-center">
+                <a
+                  class="flex items-center text-h5 italic underline"
+                  href={garfringPrev}
+                >
+                  {new URL(garfringPrev).host}
+                </a>
+                <a class="underline" href="https://garfring.neocities.org/"
+                  >index</a
+                >
+                <a
+                  class="flex items-center text-h5 italic underline"
+                  href={garfringNext}
+                >
+                  {new URL(garfringNext).host}
+                </a>
+              </div>
+              <a class="ml-4 self-end" href={garfringNext}>
+                <Icon name="mdi:arrow-right" title="next" size={64} />
+              </a>
+            </div>
+            <ul class="w-[256px] text-right self-start">
+              <li class="text-h3 underline">garfring</li>
+            </ul>
           </div>
         </div>
       </div>
