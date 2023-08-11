@@ -18,6 +18,12 @@ in {
         default = 3000;
         description = "The port to run the webserver on.";
       };
+
+      listenAddress = lib.mkOption {
+        type = lib.types.str;
+        default = "127.0.0.1";
+        description = "The address the webserver should listen on.";
+      };
     };
   };
 
@@ -28,7 +34,7 @@ in {
 
       serviceConfig = {
         ExecStart = "${pkgs.nodejs}/bin/node ${conf.package}/server/entry.mjs";
-        Environment = "PORT=${toString conf.port}";
+        Environment = "PORT=${toString conf.port} HOST=${conf.listenAddress}";
       };
     };
   };
