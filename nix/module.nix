@@ -12,6 +12,12 @@ in {
         default = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.site;
         description = "The package providing the webserver.";
       };
+
+      port = lib.mkOption {
+        type = lib.types.port;
+        default = 3000;
+        description = "The port to run the webserver on.";
+      };
     };
   };
 
@@ -22,6 +28,7 @@ in {
 
       serviceConfig = {
         ExecStart = "${pkgs.nodejs}/bin/node ${conf.package}/server/entry.mjs";
+        Environment = "PORT=${toString conf.port}";
       };
     };
   };
