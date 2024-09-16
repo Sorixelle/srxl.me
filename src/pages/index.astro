@@ -1,6 +1,62 @@
 ---
+import { Picture, Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import "../styles/main.css";
+
+import image1 from "../assets/splash1.jpg";
+import image2 from "../assets/splash2.jpg";
+import image3 from "../assets/splash3.jpg";
+import image4 from "../assets/splash4.jpg";
+import image5 from "../assets/splash5.jpg";
+import image6 from "../assets/splash6.jpg";
+import image7 from "../assets/splash7.jpg";
+import image8 from "../assets/splash8.jpg";
+import image9 from "../assets/splash9.jpg";
+import image10 from "../assets/splash10.jpg";
+
+const splashes = [
+  {
+    src: image1,
+    alt: "A closeup of the yellow flowers on an Australian wattle tree",
+  },
+  {
+    src: image2,
+    alt: "Some plants, with a bridge running over a creek in the background",
+  },
+  {
+    src: image3,
+    alt: "A closeup of a sign showing a map for a walking and cycling trail",
+  },
+  {
+    src: image4,
+    alt: "A rack-mount server computer with the top cover removed",
+  },
+  {
+    src: image5,
+    alt: "Branches of a tree illuminated red, with streaks of light across the image",
+  },
+  {
+    src: image6,
+    alt: "A branch with leaves, behind glass in an illuminated enclosure",
+  },
+  {
+    src: image7,
+    alt: "A city skyline at night, obscured by trees and a fairy light strip",
+  },
+  {
+    src: image8,
+    alt: "A plant with large leaves, illuminated by a green light and a smoky background",
+  },
+  {
+    src: image9,
+    alt: "An old wooden window frame with rusty-looking screws visible",
+  },
+  {
+    src: image10,
+    alt: "A Tait EMU train arriving at a train station",
+  },
+];
+const splash = splashes[Math.floor(Math.random() * splashes.length)];
 
 type GarfringRes = {
   websites: string[];
@@ -178,10 +234,12 @@ const webrings = {
           </div>
         </div>
       </div>
-      <img
-        class="w-full aspect-square mt-0 xl:mt-[-150px] overflow-hidden"
-        alt="My avatar"
-        src="/img/avatar.png"
+      <Picture
+        pictureAttributes={{ class: "w-full h-max overflow-hidden" }}
+        class="w-full overflow-hidden"
+        src={splash.src}
+        alt={splash.alt}
+        inferSize={true}
       />
       <div class="bottom-block">
         <div class="relative flex flex-col h-full ml-32 z-10 pr-8 pb-8">
@@ -250,7 +308,7 @@ const webrings = {
 
     <script type="text/javascript">
       const webrings = JSON.parse(
-        document.getElementById("webrings").dataset.webrings
+        document.getElementById("webrings").dataset.webrings,
       );
 
       function selectRing(name) {
