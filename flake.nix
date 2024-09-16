@@ -32,10 +32,9 @@
               pkgs.nodePackages."@astrojs/language-server"
               pnpm
               typescript-language-server
-              vscode-css-languageserver-bin
-              vscode-html-languageserver-bin
+              vscode-langservers-extracted
             ];
-          in with pkgs; [ git nil nixfmt nodejs ] ++ nodePackages;
+          in with pkgs; [ git nil nixfmt-rfc-style nodejs ] ++ nodePackages;
         };
       }) // {
         nixosModules.default = import ./nix/module.nix inputs;
