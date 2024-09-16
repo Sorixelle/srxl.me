@@ -6,16 +6,38 @@ type GarfringRes = {
   websites: string[];
 };
 
-const { websites }: GarfringRes = await (
+type RingLinks = {
+  prev: string;
+  next: string;
+};
+
+function ringLinks(sites: string[], indexUrl: string): RingLinks {
+  const index = sites.indexOf("https://srxl.me/");
+
+  const prevIndex = index - 1 === -1 ? sites.length - 1 : index - 1;
+  const prev = sites[prevIndex] ?? "[none]";
+
+  const next = sites[(index + 1) % sites.length] ?? "[none]";
+
+  return {
+    index: indexUrl,
+    prev,
+    next,
+  };
+}
+
+const { websites: garfring }: GarfringRes = await (
   await fetch("https://garfring.neocities.org/websites.json")
 ).json();
 
-const garfringIndex = websites.indexOf("https://srxl.me/");
-const prevIndex =
-  garfringIndex - 1 === -1 ? websites.length - 1 : garfringIndex - 1;
-const garfringPrev = websites[prevIndex] ?? "[none]";
-const garfringNext =
-  websites[(garfringIndex + 1) % websites.length] ?? "[none]";
+const eggring: string[] = await (
+  await fetch("https://chaiaeran.neocities.org/onionring/eggsites.json")
+).json();
+
+const webrings = {
+  garfring: ringLinks(garfring, "https://garfring.neocities.org"),
+  eggring: ringLinks(eggring, "#"),
+};
 ---
 
 <html lang="en">
@@ -164,39 +186,89 @@ const garfringNext =
       <div class="bottom-block">
         <div class="relative flex flex-col h-full ml-32 z-10 pr-8 pb-8">
           <h2 class="text-h1 text-right">webrings</h2>
-          <div class="flex grow items-end justify-end">
+          <div
+            class="flex grow items-end justify-end"
+            id="webrings"
+            data-webrings={JSON.stringify(webrings)}
+          >
             <div class="flex items-center">
-              <a class="mr-4 self-start text-black" href={garfringPrev}>
+              <a
+                id="webring-prev-icon"
+                class="mr-4 self-start text-black"
+                href={webrings.garfring.prev}
+              >
                 <Icon name="mdi:arrow-left" title="previous" size={64} />
               </a>
               <div class="h-32 flex flex-col justify-around items-center">
                 <a
+                  id="webring-prev-text"
                   class="flex items-center text-h5 text-black italic underline hover:text-crystal-40"
-                  href={garfringPrev}
+                  href={webrings.garfring.prev}
                 >
-                  {new URL(garfringPrev).host}
+                  {new URL(webrings.garfring.prev).host}
                 </a>
                 <a
+                  id="webring-index"
                   class="underline text-black hover:text-crystal-40"
-                  href="https://garfring.neocities.org/">index</a
+                  href={webrings.garfring.index}>index</a
                 >
                 <a
+                  id="webring-next-text"
                   class="flex items-center text-h5 text-black italic underline hover:text-crystal-40"
-                  href={garfringNext}
+                  href={webrings.garfring.next}
                 >
-                  {new URL(garfringNext).host}
+                  {new URL(webrings.garfring.next).host}
                 </a>
               </div>
-              <a class="ml-4 self-end text-black" href={garfringNext}>
+              <a
+                id="webring-next-icon"
+                class="ml-4 self-end text-black"
+                href={webrings.garfring.next}
+              >
                 <Icon name="mdi:arrow-right" title="next" size={64} />
               </a>
             </div>
             <ul class="w-[256px] text-right self-start">
-              <li class="text-h3 underline">garfring</li>
+              {
+                Object.keys(webrings).map((name) => (
+                  <li class="text-h3 underline">
+                    <a href="#" onclick={`selectRing("${name}")`}>
+                      {name}
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
       </div>
     </main>
+
+    <script type="text/javascript">
+      const webrings = JSON.parse(
+        document.getElementById("webrings").dataset.webrings
+      );
+
+      function selectRing(name) {
+        const webring = webrings[name];
+
+        document
+          .getElementById("webring-prev-icon")
+          .setAttribute("href", webring.prev);
+        document
+          .getElementById("webring-next-icon")
+          .setAttribute("href", webring.next);
+        document
+          .getElementById("webring-index")
+          .setAttribute("href", webring.index);
+
+        function modifyLink(e, value) {
+          e.textContent = value;
+          e.setAttribute("href", value);
+        }
+        modifyLink(document.getElementById("webring-prev-text"), webring.prev);
+        modifyLink(document.getElementById("webring-next-text"), webring.next);
+      }
+    </script>
   </body>
 </html>
