@@ -325,7 +325,7 @@ const webrings = {
           .setAttribute("href", webring.index);
 
         function modifyLink(e, value) {
-          e.textContent = value;
+          e.textContent = new URL(value).host;
           e.setAttribute("href", value);
         }
         modifyLink(document.getElementById("webring-prev-text"), webring.prev);
