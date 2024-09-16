@@ -1,8 +1,15 @@
 inputs:
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let conf = config.services.srxl-me;
-in {
+let
+  conf = config.services.srxl-me;
+in
+{
   options = {
     services.srxl-me = {
       enable = lib.mkEnableOption "the webserver for the srxl.me site.";
@@ -34,7 +41,11 @@ in {
 
       serviceConfig = {
         ExecStart = "${pkgs.nodejs}/bin/node ${conf.package}/server/entry.mjs";
-        Environment = "PORT=${toString conf.port} HOST=${conf.listenAddress}";
+        Environment = [
+          "PORT=${toString conf.port}"
+          "HOST=${conf.listenAddress}"
+        ];
+        WorkingDirectory = conf.package;
       };
     };
   };
