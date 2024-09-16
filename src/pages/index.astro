@@ -232,7 +232,11 @@ const webrings = {
               {
                 Object.keys(webrings).map((name) => (
                   <li class="text-h3 underline">
-                    <a href="#" onclick={`selectRing("${name}")`}>
+                    <a
+                      href="#"
+                      class="text-black"
+                      onclick={`selectRing("${name}")`}
+                    >
                       {name}
                     </a>
                   </li>
