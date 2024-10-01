@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://srxl.me</id>
+    <title>srxl.me</title>
+    <updated>2024-10-01T00:00:00.000Z</updated>
+    <author>
+        <name>Ruby Iris Juric (srxl)</name>
+    </author>
+    <link href="https://srxl.me/feed.xml" rel="self" type="application/rss+xml" />
+    <subtitle>fox on the internet</subtitle>
+    <entry>
+        <id>https://srxl.me/coming-soon</id>
+        <title>coming soon</title>
+        <link href="https://srxl.me/posts-one"/>
+        <updated>2024-10-01T00:00:00.000Z</updated>
+        <summary type="html">https://srxl.me</summary>
+        <content type="html">i'll have something here soon. promise. just not yet. hold out a little longer, okay?</content>
+    </entry>
+</feed>
