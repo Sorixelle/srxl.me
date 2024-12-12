@@ -3,6 +3,7 @@ import { Picture, Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import "../styles/main.css";
 
+import websiteLeague from "../assets/wl-icon.png";
 import image1 from "../assets/splash1.jpg";
 import image2 from "../assets/splash2.jpg";
 import image3 from "../assets/splash3.jpg";
@@ -199,6 +200,35 @@ const webrings = {
               aria-label="cohost"
             >
               <Icon name="eggbug" title="cohost" size={32} />
+            </a>
+            <a
+              class="hover:text-crystal-60"
+              href="https://posting.isincredibly.gay/ruby"
+              rel="me"
+              aria-label="website league"
+            >
+              <Image
+                src={websiteLeague}
+                width={32}
+                alt="website league"
+                title="website league"
+              />
+            </a>
+            <a
+              class="hover:text-crystal-60"
+              href="https://fedi.srxl.me/@ruby"
+              rel="me"
+              aria-label="fediverse"
+            >
+              <Icon name="ph:fediverse-logo" title="fediverse" size={32} />
+            </a>
+            <a
+              class="hover:text-crystal-60"
+              href="https://bsky.app/profile/ruby.isincredibly.gay"
+              rel="me"
+              aria-label="bluesky"
+            >
+              <Icon name="simple-icons:bluesky" title="bluesky" size={32} />
             </a>
             <a
               class="hover:text-crystal-60"

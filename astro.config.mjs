@@ -8,14 +8,18 @@ import node from "@astrojs/node";
 export default defineConfig({
   site: "https://srxl.me",
   output: "server",
-  integrations: [tailwind(), icon({
-    include: {
-      ion: ["key-sharp", "mail-sharp"],
-      mdi: ["arrow-left", "arrow-right"],
-      "simple-icons": ["github", "matrix"]
-    }
-  })],
+  integrations: [
+    tailwind(),
+    icon({
+      include: {
+        ion: ["key-sharp", "mail-sharp"],
+        mdi: ["arrow-left", "arrow-right"],
+        ph: ["fediverse-logo"],
+        "simple-icons": ["bluesky", "github", "matrix"],
+      },
+    }),
+  ],
   adapter: node({
-    mode: "standalone"
-  })
+    mode: "standalone",
+  }),
 });
