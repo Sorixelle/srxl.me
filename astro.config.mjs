@@ -15,7 +15,7 @@ export default defineConfig({
         ion: ["key-sharp", "mail-sharp"],
         mdi: ["arrow-left", "arrow-right"],
         ph: ["fediverse-logo"],
-        "simple-icons": ["bluesky", "github", "matrix"],
+        "simple-icons": ["github", "matrix"],
       },
     }),
   ],
